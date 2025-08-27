@@ -23,7 +23,7 @@
 
 
 .flashcard-info-input {
-    @apply resize-none h-[256px] outline-0;
+    @apply resize-none h-64 outline-0;
     @apply py-1 px-2;
     background: paint(squircle);
     --squircle-outline: 2px;
@@ -70,7 +70,8 @@
 }
 
 .flashcard-content {
-    @apply h-64 w-full relative;
+    @apply h-64 relative;
+    /* @apply h-64 w-full relative; */
     @apply py-1 px-2;
     @apply bg-zinc-50;
     box-shadow: inset 0 0 20px #aaaaaa;
