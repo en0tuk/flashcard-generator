@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@plugin 'tailwind-scrollbar';
+
+:root {
+  --color-1: #38e4ae;
+  --color-2: #01baef;
+  --color-3: #2a628f;
+  --color-4: #f1d302;
+  --color-5: #f61067;
+}
+
+@theme {
+  --color-color-1: var(--color-1);
+  --color-color-2: var(--color-2);
+  --color-color-3: var(--color-3);
+  --color-color-4: var(--color-4);
+  --color-color-5: var(--color-5);
+  --font-rubik: "Rubik", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+
+.flashcard-info-input {
+    @apply resize-none h-[256px] outline-0;
+    @apply py-1 px-2;
+    background: paint(squircle);
+    --squircle-outline: 2px;
+    --squircle-fill: var(--color-2);
+    --squircle-radius: 8px;
+    --squircle-smooth: 1;
+
+    & > textarea {
+        @apply outline-0 resize-none w-full h-full;
+        @apply scrollbar-thin scrollbar-thumb-color-1 scrollbar-track-transparent;
+    }
+
+    &:focus-within {
+        @apply delay-75 duration-150;
+        @apply bg-zinc-50;
+    }
+}
+
+.generate-button {
+    @apply border-transparent outline-0;
+    @apply w-full py-1;
+    @apply bg-color-1;
+    @apply font-rubik font-semibold tracking-wider;
+    --squircle-smooth: 1;
+    --squircle-radius: 999px;
+    mask-image: paint(squircle);
+
+    &:hover {
+        @apply cursor-pointer;
+        @apply bg-color-1/80;
+        @apply delay-75 duration-150;
+    }
+}
+
+.flashcard {
+    @apply p-6;
+    background-color: rgba(0, 0, 0, 0.45);
+    background-image: url("https://img.freepik.com/free-photo/metallic-background-with-grunge-scratched-effect_1048-14107.jpg");
+    background-blend-mode: color-burn;
+    @apply bg-right-bottom bg-cover;
+    --squircle-smooth: 0.3;
+    --squircle-radius: 24px;
+    mask-image: paint(squircle);
+}
+
+.flashcard-content {
+    @apply h-64 w-full relative;
+    @apply py-1 px-2;
+    @apply bg-zinc-50;
+    box-shadow: inset 0 0 20px #aaaaaa;
+    --squircle-smooth: 0.3;
+    --squircle-radius: 12px;
+    mask-image: paint(squircle);
+}
