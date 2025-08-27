@@ -1,1 +1,0 @@
-# pokemon-info-course
