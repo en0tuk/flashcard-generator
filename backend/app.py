@@ -1,7 +1,8 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS
 
 load_dotenv()
 
@@ -12,36 +13,30 @@ client = Groq(
 )
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
+@app.route("/", methods=["POST"])
 async def hello_world():
+
+    prompt1 = request.data.decode()
+
+    print(prompt1)
+
     chat_completion = client.chat.completions.create(
         messages=[
             {
                 "role": "system",
-                "content": "Extract flashcards with at least 1 sentence from the text."
+                "content": 'Extract flashcards with at least 1 sentence from the text. Respond in json. json example: {"flashcards": ["flashcard1", "flashcard2"]}'
             },
-            # Set a user message for the assistant to respond to.
             {
                 "role": "user",
-                "content": """Duck is the common name for numerous species of waterfowl in the family Anatidae. Ducks are generally smaller and shorter-necked than swans and geese, which are members of the same family. Divided among several subfamilies, they are a form taxon; they do not represent a monophyletic group (the group of all descendants of a single common ancestral species), since swans and geese are not considered ducks. Ducks are mostly aquatic birds, and may be found in both fresh water and sea water.
-
-Ducks are sometimes confused with several types of unrelated water birds with similar forms, such as loons or divers, grebes, gallinules and coots.""",
+                "content": prompt1,
             }
         ],
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        response_format={
-            "type": "json_schema",
-            "json_schema": {
-                "name": "flashcards",
-                "schema": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
-        
+        model="moonshotai/kimi-k2-instruct",
+        response_format={"type": "json_object"},
+        temperature=1.0
     )
+
+
     return chat_completion.choices[0].message.content

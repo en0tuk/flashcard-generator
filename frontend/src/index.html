@@ -11,9 +11,9 @@
 
 <body>
   <div class="container mx-auto h-dvh flex justify-center py-4">
-    <div class="px-4">
+    <div class="px-4 max-w-xl w-full">
       <form id="flashcardForm" class="flex flex-col gap-2">
-        <h1 class="text-3xl text-center font-rubik font-medium">Flashcard Generator</h1>
+        <h1 class="text-3xl text-center font-rubik font-medium">AI Flashcard Generator</h1>
         <div class="flex flex-col">
           <label class="select-none font-inter" for="flashcardInfo">Info for flashcard generation</label>
           <div class="flashcard-info-input">
@@ -22,68 +22,17 @@
         </div>
         <button class="generate-button" type="submit">Generate</button>
       </form>
-      <div class="splide max-w-xl mt-4" role="group" aria-label="Flashcards">
+      <div class="splide hidden max-w-xl mt-4" role="group" aria-label="Flashcards">
         <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="flashcard">
-                <div class="flashcard-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eum maiores suscipit
-                  omnis doloribus iusto fugit minima minus placeat porro distinctio nulla nostrum, debitis ex
-                  accusantium. Repellendus, doloremque eum!
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="flashcard">
-                <div class="flashcard-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eum maiores suscipit
-                  omnis doloribus iusto fugit minima minus placeat porro distinctio nulla nostrum, debitis ex
-                  accusantium. Repellendus, doloremque eum!
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="flashcard">
-                <div class="flashcard-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eum maiores suscipit
-                  omnis doloribus iusto fugit minima minus placeat porro distinctio nulla nostrum, debitis ex
-                  accusantium. Repellendus, doloremque eum!
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="flashcard">
-                <div class="flashcard-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eum maiores suscipit
-                  omnis doloribus iusto fugit minima minus placeat porro distinctio nulla nostrum, debitis ex
-                  accusantium. Repellendus, doloremque eum!
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="flashcard">
-                <div class="flashcard-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum eum maiores suscipit
-                  omnis doloribus iusto fugit minima minus placeat porro distinctio nulla nostrum, debitis ex
-                  accusantium. Repellendus, doloremque eum!
-                </div>
-              </div>
-            </li>
+          <ul class="splide__list" id="flashcards">
           </ul>
         </div>
       </div>
     </div>
   </div>
   </div>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-  <script>
-    new Splide('.splide', {
-      type: "loop",
-      gap: "1rem",
-      drag: false
-    }).mount();
   </script>
   <script>
     (async function () {
