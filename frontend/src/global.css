@@ -21,12 +21,11 @@
   --font-inter: "Inter", sans-serif;
 }
 
-
 .flashcard-info-input {
     @apply resize-none h-64 outline-0;
     @apply py-1 px-2;
     background: paint(squircle);
-    --squircle-outline: 2px;
+    /* --squircle-outline: 2px; */
     --squircle-fill: var(--color-2);
     --squircle-radius: 8px;
     --squircle-smooth: 1;
@@ -41,7 +40,6 @@
 
     &:focus-within {
         @apply delay-75 duration-150;
-        @apply bg-zinc-50;
     }
 }
 
@@ -63,7 +61,8 @@
 
 .flashcard {
     @apply p-6;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(1, 186, 239, 0.6);
+    /* background-color: rgba(0, 0, 0, 0.45); */
     background-image: url("https://img.freepik.com/free-photo/metallic-background-with-grunge-scratched-effect_1048-14107.jpg");
     background-blend-mode: color-burn;
     @apply bg-right-bottom bg-cover;
