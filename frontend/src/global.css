@@ -30,9 +30,12 @@
     --squircle-fill: var(--color-2);
     --squircle-radius: 8px;
     --squircle-smooth: 1;
-
+    
+    
     & > textarea {
+        scrollbar-gutter: stable;
         @apply outline-0 resize-none w-full h-full;
+        @apply overflow-y-scroll;
         @apply scrollbar-thin scrollbar-thumb-color-1 scrollbar-track-transparent;
     }
 
